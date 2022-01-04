@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'feedback-mechanism'`, () => {
+  it(`should have as title 'team-feedback'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('feedback-mechanism');
+    expect(app.title).toEqual('team-feedback');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('feedback-mechanism app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('team-feedback app is running!');
   });
 });

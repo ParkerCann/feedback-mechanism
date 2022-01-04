@@ -1,0 +1,106 @@
+<body id="body" [ngClass]="calculateScreenMode()">
+    <mat-stepper #stepper>
+        <mat-step>
+            <mat-card class="card" style="margin-top: 8px;">
+                <mat-form-field class="inputContainer" appearance="fill" [ngClass]="mobileFontSize()" #name >
+                    <mat-label>Full Name</mat-label>
+                    <input matInput [(ngModel)]="pageData.name" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="inputContainer" appearance="fill" [ngClass]="mobileFontSize()" #affiliation>
+                    <mat-label>Afilliation / Company</mat-label>
+                    <input matInput [(ngModel)]="pageData.affiliation" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="inputContainer" appearance="fill" [ngClass]="mobileFontSize()" #phone>
+                    <mat-label>Phone Number / Email Address</mat-label>
+                    <input matInput required>
+                </mat-form-field>
+                <app-regular-secondary-btn (click)="goForward(stepper)" buttontext="Next">
+            
+                </app-regular-secondary-btn>
+            </mat-card>
+        </mat-step>
+
+        <mat-step>
+            <div id="" [ngClass]="mobileQuestionCounter()">
+                {{answerCounter}}/10
+            </div>
+
+            <mat-card class="card" [ngClass]="calculateVerticalMargin()">
+                <p>
+                    Please answer the following 10 questions to the best of your ability. 
+                    <span *ngIf="screenMode !== 'mobile'"> If you feel neutral about a question, select the middle option. </span> 
+                    All questions begin with the following prompt:
+                </p>
+                <!-- <p>
+                    Screen Mode: {{screenMode}}
+                </p> -->
+                <h2>In my opinion, the CX team...</h2>
+            </mat-card>
+        
+            <section>
+                <mat-card class="card" [ngClass]="calculateVerticalMargin()">
+                    <app-rating-component #question1 (click)="updateCounter()" [screenMode]="screenMode" [questionText]="'... had the necessary equipment (facilities, hardware, software, etc) to complete their job.'"></app-rating-component>
+                </mat-card>
+        
+                <mat-card class="card" [ngClass]="calculateVerticalMargin()">
+                    <app-rating-component #question2 (click)="updateCounter()" [screenMode]="screenMode" [questionText]="'... looked professional.'"></app-rating-component>
+                </mat-card>
+        
+                <mat-card class="card" [ngClass]="calculateVerticalMargin()">
+                    <app-rating-component #question3 (click)="updateCounter()" [screenMode]="screenMode" [questionText]="'... was sympathetic to my issues and/or needs.'"></app-rating-component>
+                </mat-card>
+        
+                <mat-card class="card" [ngClass]="calculateVerticalMargin()">
+                    <app-rating-component #question4 (click)="updateCounter()" [screenMode]="screenMode" [questionText]="'… was respectful of my time.'"></app-rating-component>
+                </mat-card>
+        
+                <mat-card class="card" [ngClass]="calculateVerticalMargin()">
+                    <app-rating-component #question5 (click)="updateCounter()" [screenMode]="screenMode" [questionText]="'… was quick to answer emails/calls/messages with helpful information.'"></app-rating-component>
+                </mat-card>
+        
+                <mat-card class="card" [ngClass]="calculateVerticalMargin()">
+                    <app-rating-component #question6 (click)="updateCounter()" [screenMode]="screenMode" [questionText]="'... had enough time to communicate effectively.'"></app-rating-component>
+                </mat-card>
+        
+                <mat-card class="card" [ngClass]="calculateVerticalMargin()">
+                    <app-rating-component #question7 (click)="updateCounter()" [screenMode]="screenMode" [questionText]="'... appeared trustworthy.'"></app-rating-component>
+                </mat-card>
+        
+                <mat-card class="card" [ngClass]="calculateVerticalMargin()">
+                    <app-rating-component #question8 (click)="updateCounter()" [screenMode]="screenMode" [questionText]="'.. had the necessary knowledge to complete their job.'"></app-rating-component>
+                </mat-card>
+        
+                <mat-card class="card" [ngClass]="calculateVerticalMargin()">
+                    <app-rating-component #question9 (click)="updateCounter()" [screenMode]="screenMode" [questionText]="'... gave individualized attention.'"></app-rating-component>
+                </mat-card>
+        
+                <mat-card class="card" [ngClass]="calculateVerticalMargin()">
+                    <app-rating-component #question10 (click)="updateCounter()" [screenMode]="screenMode" [questionText]="'... fully understood my needs.'"></app-rating-component>
+                </mat-card>    
+            </section>
+        
+            <section [ngClass]="mobileFooterMargin()">
+                <mat-card class="card">
+                    <mat-form-field class="inputContainer" #commentBox>
+                        <mat-label>Leave a comment (optional)</mat-label>
+                        <textarea matInput class="commentBox" placeholder="" [(ngModel)]="pageData.comment"></textarea>
+                    </mat-form-field>    
+                </mat-card>
+                
+            </section>
+        
+            <section #footer [ngClass]="mobileFooter()">
+                <app-regular-secondary-btn (click)="goBack(stepper)" buttontext="Back" style="float: left;">
+        
+                </app-regular-secondary-btn>
+        
+                <app-primary-button buttontext="Submit" style="float: right;" (click)="submit()">
+        
+                </app-primary-button>    
+            </section>
+        </mat-step>
+    </mat-stepper>
+    
+</body>

@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'feedback-mechanism';
+  title = 'team-feedback';
+
+  //https://fireship.io/lessons/sharing-data-between-angular-components-four-methods/
+  screenMode: string = "";
+
+  getScreenMode($event: string){
+    this.screenMode = $event;
+  }
 }

@@ -1,0 +1,89 @@
+<div>
+
+    <div>
+        <p class="questionFont">
+            {{questionText}}
+        </p>
+    </div>
+
+    <table>
+        <tr *ngIf="screenMode !== 'mobile'">
+            <td [ngClass]="labelFormatting()" style="text-align: right;">
+                <span>
+                    Strongly <br *ngIf="screenMode == 'tablet'"> Disagree
+                </span>
+                <span *ngIf="screenMode == 'mobile'">
+                    Strongly Agree
+                </span>
+            </td>
+            <td *ngIf="screenMode !== 'mobile'" [ngClass]="btnFormatting()">
+                <span style="position: relative; ">
+                    <mat-button-toggle-group name="rating" aria-label="Likert Scale" #group="matButtonToggleGroup" [ngClass]="mobileFormattingBtns()" [value]="selectedVal" [(ngModel)]="selectedVal">
+                        <mat-button-toggle (click)="toggleValue()" (click)="value1 = !value1" [value]="1" class="no-background no-hover" [ngClass]="calculateBackground()">
+                            <mat-icon *ngIf="!value1" aria-hidden="false" aria-label="" class="md-24">radio_button_unchecked</mat-icon>
+                            <mat-icon *ngIf="value1" aria-hidden="false" aria-label="" class="md-24" [ngStyle]="{'color':'#0093d0'}">radio_button_checked</mat-icon>
+                        </mat-button-toggle>
+                
+                        <mat-button-toggle (click)="toggleValue()" (click)="value2 = !value2" [value]="2" class="no-background no-hover" [ngClass]="calculateBackground()">
+                            <mat-icon *ngIf="!value2" aria-hidden="false" aria-label="" class="md-24">radio_button_unchecked</mat-icon>
+                            <mat-icon *ngIf="value2" aria-hidden="false" aria-label="" class="md-24" [ngStyle]="{'color':'#0093d0'}">radio_button_checked</mat-icon>
+                        </mat-button-toggle>
+                
+                        <mat-button-toggle (click)="toggleValue()" (click)="value3 = !value3" [value]="3" class="no-background no-hover" [ngClass]="calculateBackground()">
+                            <mat-icon *ngIf="!value3" aria-hidden="false" aria-label="" class="md-24">radio_button_unchecked</mat-icon>
+                            <mat-icon *ngIf="value3" aria-hidden="false" aria-label="" class="md-24" [ngStyle]="{'color':'#0093d0'}">radio_button_checked</mat-icon>
+                        </mat-button-toggle>
+                
+                        <mat-button-toggle (click)="toggleValue()" (click)="value4 = !value4" [value]="4" class="no-background no-hover" [ngClass]="calculateBackground()">
+                            <mat-icon *ngIf="!value4" aria-hidden="false" aria-label="" class="md-24">radio_button_unchecked</mat-icon>
+                            <mat-icon *ngIf="value4" aria-hidden="false" aria-label="" class="md-24" [ngStyle]="{'color':'#0093d0'}">radio_button_checked</mat-icon>
+                        </mat-button-toggle>
+                
+                        <mat-button-toggle (click)="toggleValue()" (click)="value5 = !value5" [value]="5" class="no-background no-hover" [ngClass]="calculateBackground()">
+                            <mat-icon *ngIf="!value5" aria-hidden="false" aria-label="" class="md-24">radio_button_unchecked</mat-icon>
+                            <mat-icon *ngIf="value5" aria-hidden="false" aria-label="" class="md-24" [ngStyle]="{'color':'#0093d0'}">radio_button_checked</mat-icon>
+                        </mat-button-toggle>
+                    </mat-button-toggle-group>
+                </span>
+            </td>
+            <td *ngIf="screenMode !== 'mobile'" [ngClass]="labelFormatting()" style="text-align: left;">
+                <span *ngIf="screenMode !== 'mobile'">
+                    Strongly <br *ngIf="screenMode == 'tablet'"> Agree
+                </span>
+                <span *ngIf="screenMode == 'mobile'">
+                    Strongly Disagree
+                </span>
+            </td>
+        </tr>
+        <tr *ngIf="screenMode == 'mobile'">
+            <span style="position: relative;">
+                <mat-button-toggle-group name="rating" aria-label="Likert Scale" #group="matButtonToggleGroup"[ngClass]="mobileFormattingBtns()" [(ngModel)]="selectedVal">
+                    <mat-button-toggle id=[value] (click)="toggleValue()" (click)="value1 = !value1" [value]="1" class="no-background no-hover solid-btns">
+                        <span class="btn-txt" *ngIf="!value1">Strongly Agree</span>
+                        <span class="btn-txt" *ngIf="value1">Strongly Agree</span>
+                    </mat-button-toggle>
+            
+                    <mat-button-toggle (click)="toggleValue()" (click)="value2 = !value2" [value]="2" class="no-background no-hover solid-btns">
+                        <span class="btn-txt" *ngIf="!value2">Agree</span>
+                        <span class="btn-txt" *ngIf="value2">Agree</span>                    
+                    </mat-button-toggle>
+
+                    <mat-button-toggle (click)="toggleValue()" (click)="value3 = !value3" [value]="3" class="no-background no-hover solid-btns">
+                        <span class="btn-txt" *ngIf="!value3">Neutral</span>
+                        <span class="btn-txt" *ngIf="value3">Neutral</span>                    
+                    </mat-button-toggle>
+            
+                    <mat-button-toggle (click)="toggleValue()" (click)="value4 = !value4" [value]="4" class="no-background no-hover solid-btns">
+                        <span class="btn-txt" *ngIf="!value4">Disagree</span>
+                        <span class="btn-txt" *ngIf="value4">Disagree</span>                    
+                    </mat-button-toggle>
+            
+                    <mat-button-toggle (click)="toggleValue()" (click)="value5 = !value5" [value]="5" class="no-background no-hover solid-btns">
+                        <span class="btn-txt" *ngIf="!value5">Strongly Disagree</span>
+                        <span class="btn-txt" *ngIf="value5">Strongly Disagree</span>                    
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </span>
+        </tr>
+    </table>
+</div>
