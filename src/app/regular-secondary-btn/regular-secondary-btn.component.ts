@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class RegularSecondaryBtnComponent implements OnInit {
 
   @Input() buttontext: string = "";
+  @Input() ability: boolean = true;
 
   constructor() { }
 

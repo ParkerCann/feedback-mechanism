@@ -131,8 +131,21 @@
     position: fixed;
     bottom: 0px;
     border-radius: 8px 8px 0px 0px;
+    border-top: 1px solid black;
 }
 
 .footer-margin{
     margin-bottom: 64px;
+}
+
+.btn{
+    margin: 8px;
+}
+
+.error{
+    background: #DD191D;
+    color: black;
+    text-align: center;
+    border-radius: 8px;
+    padding: 4px;
 }

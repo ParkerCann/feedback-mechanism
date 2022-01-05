@@ -109,4 +109,13 @@ export class RatingComponentComponent implements OnInit {
     }
   }
 
+  changeBtn(val: number){
+    if(this.selectedVal == val){
+      return "active-background"
+    }
+    else{
+      return ""
+    }
+  }
+
 }

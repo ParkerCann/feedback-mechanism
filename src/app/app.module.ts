@@ -6,6 +6,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -38,7 +39,8 @@ import { RegularSecondaryBtnComponent } from './regular-secondary-btn/regular-se
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

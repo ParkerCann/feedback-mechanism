@@ -57,30 +57,25 @@
         </tr>
         <tr *ngIf="screenMode == 'mobile'">
             <span style="position: relative;">
-                <mat-button-toggle-group name="rating" aria-label="Likert Scale" #group="matButtonToggleGroup"[ngClass]="mobileFormattingBtns()" [(ngModel)]="selectedVal">
-                    <mat-button-toggle id=[value] (click)="toggleValue()" (click)="value1 = !value1" [value]="1" class="no-background no-hover solid-btns">
-                        <span class="btn-txt" *ngIf="!value1">Strongly Agree</span>
-                        <span class="btn-txt" *ngIf="value1">Strongly Agree</span>
+                <mat-button-toggle-group name="rating" aria-label="Likert Scale" #group="matButtonToggleGroup" [ngClass]="mobileFormattingBtns()" [(ngModel)]="selectedVal">
+                    <mat-button-toggle (click)="toggleValue()" [value]="5" class="no-background no-hover solid-btns" [ngClass]="changeBtn(5)">
+                        <span class="btn-txt">Strongly Agree</span>
                     </mat-button-toggle>
             
-                    <mat-button-toggle (click)="toggleValue()" (click)="value2 = !value2" [value]="2" class="no-background no-hover solid-btns">
-                        <span class="btn-txt" *ngIf="!value2">Agree</span>
-                        <span class="btn-txt" *ngIf="value2">Agree</span>                    
+                    <mat-button-toggle (click)="toggleValue()" [value]="4" class="no-background no-hover solid-btns" [ngClass]="changeBtn(4)">
+                        <span class="btn-txt">Agree</span>                  
                     </mat-button-toggle>
 
-                    <mat-button-toggle (click)="toggleValue()" (click)="value3 = !value3" [value]="3" class="no-background no-hover solid-btns">
-                        <span class="btn-txt" *ngIf="!value3">Neutral</span>
-                        <span class="btn-txt" *ngIf="value3">Neutral</span>                    
+                    <mat-button-toggle (click)="toggleValue()" [value]="3" class="no-background no-hover solid-btns" [ngClass]="changeBtn(3)">
+                        <span class="btn-txt">Neutral</span>                 
                     </mat-button-toggle>
             
-                    <mat-button-toggle (click)="toggleValue()" (click)="value4 = !value4" [value]="4" class="no-background no-hover solid-btns">
-                        <span class="btn-txt" *ngIf="!value4">Disagree</span>
-                        <span class="btn-txt" *ngIf="value4">Disagree</span>                    
+                    <mat-button-toggle (click)="toggleValue()" [value]="2" class="no-background no-hover solid-btns" [ngClass]="changeBtn(2)">
+                        <span class="btn-txt">Disagree</span>               
                     </mat-button-toggle>
             
-                    <mat-button-toggle (click)="toggleValue()" (click)="value5 = !value5" [value]="5" class="no-background no-hover solid-btns">
-                        <span class="btn-txt" *ngIf="!value5">Strongly Disagree</span>
-                        <span class="btn-txt" *ngIf="value5">Strongly Disagree</span>                    
+                    <mat-button-toggle (click)="toggleValue()"  [value]="1" class="no-background no-hover solid-btns" [ngClass]="changeBtn(1)">
+                        <span class="btn-txt">Strongly Disagree</span>                 
                     </mat-button-toggle>
                 </mat-button-toggle-group>
             </span>

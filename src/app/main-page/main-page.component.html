@@ -2,24 +2,41 @@
     <mat-stepper #stepper>
         <mat-step>
             <mat-card class="card" style="margin-top: 8px;">
-                <mat-form-field class="inputContainer" appearance="fill" [ngClass]="mobileFontSize()" #name >
+
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error" [ngClass]="mobileFontSize()">
+                    <div *ngIf="name.errors?.['required']">
+                        Name is required.
+                      </div>
+                </div>
+
+                <mat-form-field class="inputContainer" appearance="fill" [ngClass]="mobileFontSize()" #nameField >
                     <mat-label>Full Name</mat-label>
-                    <input matInput [(ngModel)]="pageData.name" required>
+                    <input matInput [(ngModel)]="pageData.name" required id="name" name="name" #name="ngModel">
                 </mat-form-field>
+
                 <br>
-                <mat-form-field class="inputContainer" appearance="fill" [ngClass]="mobileFontSize()" #affiliation>
+
+                <div *ngIf="affiliation.invalid && (affiliation.dirty || affiliation.touched)" class="error" [ngClass]="mobileFontSize()">
+                    <div *ngIf="affiliation.errors?.['required']">
+                        Affiliation is required.
+                      </div>
+                </div>
+
+                <mat-form-field class="inputContainer" appearance="fill" [ngClass]="mobileFontSize()" #affiliationField>
                     <mat-label>Afilliation / Company</mat-label>
-                    <input matInput [(ngModel)]="pageData.affiliation" required>
+                    <input matInput [(ngModel)]="pageData.affiliation" required id="affiliation" name="affiliation" #affiliation="ngModel">
                 </mat-form-field>
                 <br>
                 <mat-form-field class="inputContainer" appearance="fill" [ngClass]="mobileFontSize()" #phone>
                     <mat-label>Phone Number / Email Address</mat-label>
-                    <input matInput required>
+                    <input matInput>
                 </mat-form-field>
-                <app-regular-secondary-btn (click)="goForward(stepper)" buttontext="Next">
-            
-                </app-regular-secondary-btn>
+                
             </mat-card>
+
+            <app-regular-secondary-btn *ngIf="name.invalid || affiliation.invalid" [ability]=true buttontext="Next" class="btn" matTooltip="Please add your name and affiliation to continue."></app-regular-secondary-btn>
+            <app-regular-secondary-btn *ngIf="name.valid && affiliation.valid" (click)="goForward(stepper)" class="btn" [ability]=false buttontext="Next"></app-regular-secondary-btn>
+
         </mat-step>
 
         <mat-step>
@@ -92,11 +109,11 @@
             </section>
         
             <section #footer [ngClass]="mobileFooter()">
-                <app-regular-secondary-btn (click)="goBack(stepper)" buttontext="Back" style="float: left;">
+                <app-regular-secondary-btn (click)="goBack(stepper)" [ability]=false buttontext="Back" style="float: left;" class="btn">
         
                 </app-regular-secondary-btn>
         
-                <app-primary-button buttontext="Submit" style="float: right;" (click)="submit()">
+                <app-primary-button class="btn" buttontext="Submit" style="float: right;" (click)="submit()">
         
                 </app-primary-button>    
             </section>

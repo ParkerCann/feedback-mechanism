@@ -76,7 +76,7 @@ export class MainPageComponent implements OnInit {
   }
 
   test(){
-    console.log(this.pageData);
+    console.log(this.name.valid);
   }
 
   constructor() {
@@ -204,5 +204,15 @@ export class MainPageComponent implements OnInit {
     this.pageData.q10Text = this.question10.questionText;
 
     console.log(this.pageData);
+  }
+
+  @ViewChild('name') name: any | undefined;
+
+  validateInfo(){
+    if (this.name.valid == true) {
+      return true
+    } else {
+      return false
+    }
   }
 }
